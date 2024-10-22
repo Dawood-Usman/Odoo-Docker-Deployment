@@ -6,7 +6,7 @@ on:
       - main  # Trigger on the main branch
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
     
     steps:
@@ -54,21 +54,22 @@ jobs:
         echo "Some containers are unhealthy:"
         docker ps --filter "health=unhealthy"
         exit 1
-  # Deploy:
-  #   name: Deploy to Server
-  #   runs-on: ubuntu-latest
-  #   needs: build
 
-  #   steps:
-  #     - name: Set up SSH
-  #       uses: webfactory/ssh-agent@v0.5.3
-  #       with:
-  #         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+  Deploy:
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    needs: build
 
-  #     - name: Deploy to Server
-  #       run: |
-  #         ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.HOST_NAME }} << EOF
-  #           cd Odoo-Docker-Deployment/
-  #           git pull origin main
-  #           sudo ./scripts/deploy.sh
-  #         EOF
+    steps:
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.HOST_NAME }} << EOF
+            cd Odoo-Docker-Deployment/
+            git pull origin main
+            sudo ./scripts/deploy.sh
+          EOF
