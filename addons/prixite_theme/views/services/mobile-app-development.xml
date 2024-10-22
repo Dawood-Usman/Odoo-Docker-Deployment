@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="page_mobile_app_development" model="website.page">
+            <field name="name">Mobile App Development</field>
+            <field name="is_published" eval="True"/>
+            <field name="key">prixite_website.mobile_app_developmen</field>
+            <field name="url">/services/mobile-app-development</field>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <t name="Mobile App Development" t-name="prixite_website.mobile_app_developmen">
+                    <t t-call="website.layout">
+                       <link rel="stylesheet" type="text/css" href="/prixite_theme/static/scss/service.scss" />
+                        <xpath expr="//title" position="replace">
+                <t t-set="title">Prixite - Mobile App Development</t>
+            </xpath>
+                        <div class="container mt-3 mt-md-5 text-black p-md-0">
+                            <div class="row align-items-center p-4 services-containerr"
+                                 style="background-color: #EFF7EC; border-radius: 1rem;">
+                                <div class="col-md-8">
+                                    <h3>Mobile App Development</h3>
+                                    <p class="service-para">To improve your digital strategy and benefit from all the advantages of the
+                                        mobile digital age, the mobile application
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4 text-center text-end">
+                                    <a href="/contact-us" class="btn  btn-mobile-small btn-contact submit-button"
+                                 >
+                                        CONTACT US
+                                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                               stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M1.265 4.42619C1.04293 2.87167 2.6169 1.67931 4.05323 2.31397L21.8341 10.1706C23.423 10.8727 23.423 13.1273 21.8341 13.8294L4.05323 21.686C2.6169 22.3207 1.04293 21.1283 1.265 19.5738L1.99102 14.4917C2.06002 14.0087 2.41458 13.6156 2.88791 13.4972L8.87688 12L2.88791 10.5028C2.41458 10.3844 2.06002 9.99129 1.99102 9.50829L1.265 4.42619ZM21.0257 12L3.2449 4.14335L3.89484 8.69294L12.8545 10.9328C13.9654 11.2106 13.9654 12.7894 12.8545 13.0672L3.89484 15.3071L3.2449 19.8566L21.0257 12Z"
+                                                      fill="#ffffff"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="align-items-center mt-4 mt-md-5"
+                            >
+                                <div>
+                                    <p class="sub-para-service">Whether you are looking to develop a mobile application for tablets, smartphones
+                                        or both Prixite got your back when it comes to mobile application development no
+                                        matter which platform you want it to build on which smart device it is to be
+                                        used on. We are a team of experts and offer our clients a wide range of
+                                        innovative and advanced services to optimize their business processes and
+                                        achieve the desired outcome and objective. We aim to provide our customers with
+                                        cross-platform mobile applications that can perform on any smart device or
+                                        platform. Clients who choose to work with us can be truly assured that their
+                                        customized mobile application needs will be truly met and executed and their
+                                        outcome will be completely secure, measurable, advanced, and inventive and
+                                        entirely sustainable no matter on which platform it is developed and hosted.
+                                    </p>
+                                    <br></br>
+                                    <p class="sub-para-service">We develop, design, and deliver mobile applications across all major and required
+                                        platforms such as Android, BlackBerry, iOS (iPhone &amp; iPad), and also Windows
+                                        Mobile. Our expert professionals are there to understand your business needs and
+                                        help you with an aspect of your need such as customized UX/UI design, business
+                                        analysis, project management, custom codes, and most importantly quality
+                                        assurance for complete end to end mobile application development solution to be
+                                        truly delivered and experienced by its required audience in the world of
+                                        technology.
+                                    </p>
+                                    <br></br>
+                                    <p class="sub-para-service">In addition to these we offer our client a wide range of services associated with
+                                        mobile app development involving:
+                                    </p>
+                                    <ul>
+                                        <li>Complete business requirement analysis and interpretation</li>
+                                        <li>UX testing and Quality User Experience</li>
+                                        <li>Customized Design architecture and Wire Framing</li>
+                                        <li>Advanced Project Management</li>
+                                        <li>Professional Development Process and Extensive Integration Expertise</li>
+                                        <li>Cross-Platform Mobile Application Development</li>
+                                        <li>Vigilant Quality Check and Control</li>
+                                        <li>Timely Delivery and Budget Friendly Services</li>
+                                        <li>Complete Assistance in launching your app in App Store, Play Store, and other marketplaces</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

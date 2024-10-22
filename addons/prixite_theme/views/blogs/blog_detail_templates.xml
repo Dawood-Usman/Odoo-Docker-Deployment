@@ -1,0 +1,128 @@
+<!-- blog_templates.xml -->
+<odoo>
+    <template id="blog_post_detail_inherit" inherit_id="website_blog.blog_post_complete">
+        <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
+            <section>
+                <div class="container mt-5 text-black mt-3 mt-md-5 p-md-0">
+                    <style>
+                        .top-container{
+                        border: 1.39px solid #e7e7e7;
+                        box-shadow: 13.9px 13.9px 33.36px 1.39px hsla(0,0%,87%,.15);
+                        border-radius: 8px;
+
+                        display: flex;
+
+                        justify-content: center;
+                        padding: 15px;
+                        }
+                        .blog-sub{
+                        font-size: 10px;
+                        gap: 10px;
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        padding: 0;
+                        }
+                        .blog-detail-container{
+                        padding: 30px;
+                        margin: auto;
+                        }
+                        .description-blog{
+                        line-height: 1.8;
+                        color: black;
+                        }
+
+                        .blog-title{
+                        font-size: 30px;
+                        font-weight: 600;
+                        }
+
+                        .social_icon, .social_icon_fb {
+                        height: 24px;
+                        }
+                        .blog-title{
+
+                        margin: 0;
+                        }
+
+                        @media (max-width: 650px) {
+                        .top-container .back-to-top {
+                        display: none !important;
+                        }
+                        .top-container{
+                        padding: 0;
+                        }
+
+                        .description-blog p{
+                        font-size: 12px;
+                        }
+                        .description-blog h4{
+                        font-size: 15px;
+                        }
+                        .social_section {
+                        flex-wrap: nowrap; /* Prevent wrapping */
+                        justify-content: start; /* Align items to the start */
+                        }
+                        .blog-title{
+                        font-size: 1rem;
+                        margin: 0;
+                        }
+                        .blog-detail-container {
+                        padding: 15px;
+                        margin: auto;
+                        }
+                        .blog-desc{
+                        font-size: 10px;
+                        }
+                        }
+                    </style>
+                    <div class="row align-items-center blog-detail-container"
+                         style="background-color: #EFF7EC; border-radius: 1rem;">
+                        <div class="col-12 col-md-8 mb-2 mb-md-3 mb-md-0 p-0">
+                            <p class="blog-title" t-esc="blog_post.name"/>
+                        </div>
+                        <div class="col-12 col-md-4 text-md-end text-start d-flex align-items-center justify-content-start justify-content-md-end blog-sub"
+                             style="font-size: 14px; gap: 25px;"> <!-- Added gap for consistent spacing -->
+                            <!--                        <span class="d-inline-block" t-esc="formatted_date"></span>-->
+                            <!--                        <span class="d-inline-block" t-esc="post.read_time + ' min read'"></span>-->
+                            <a href="https://web.facebook.com/prixite/" class="text-decoration-none">
+                                <img src="/prixite_theme/static/img/fb.png" alt="Facebook"
+                                     class="social_icon social_icon_fb"/>
+                            </a>
+                            <a href="https://www.linkedin.com/company/prixite/mycompany/" class="text-decoration-none">
+                                <img src="/prixite_theme/static/img/linkdein.png" alt="LinkedIn" class="social_icon"/>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="row mt-4 mt-md-5">
+                        <div class="col-12 description-blog">
+<!--                            <div class="blog-desc" t-raw="blog_post.content" style="font-size: 1rem;"></div>-->
+                            <div t-field="blog_post.content"
+                                 data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS"
+                                 t-attf-class="o_wblog_post_content_field #{'js_tweet' if opt_blog_post_select_to_tweet else ''} #{'js_comment' if opt_blog_post_select_to_comment else ''} #{'o_wblog_read_text' if opt_blog_post_readable else ''}"/>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="article_info_bottom" class="container mt-5 text-black mt-3 mt-md-5 p-md-0">
+                <div class="card mt-5 top-container">
+                    <div class="d-flex justify-content-between align-items-center"
+                         style="border-radius: 8px; padding: 10px;font-size: 1rem;">
+                        <span>Written by
+                            <span t-raw="blog_post.create_uid.name"></span>
+                        </span>
+                        <a href="#top" class="back-to-top"
+                           style="text-decoration: none; display: flex; align-items-center; color: inherit;">
+                            <img src="/prixite_theme/static/img/scrollToTop.png" alt="Back to top"
+                                 style="width: 20px; height: 20px; margin-right: 5px;"/>
+                            Back To Top
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </xpath>
+        <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
+        </xpath>
+    </template>
+</odoo>

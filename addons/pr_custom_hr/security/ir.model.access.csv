@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_contract_public_employee_user,employee.public.work.entries.user,hr_contract.model_hr_contract,pr_custom_hr.employee_public_group,1,0,0,0
+access_work_entry_public_employee_user,hr.work.entry.employee.public.work.entries.user,hr_work_entry.model_hr_work_entry,pr_custom_hr.employee_public_group,1,0,0,0
+access_hr_user_work_entry_employee_public_employee_user,hr.user.work.entry.employee.employee.public.work.entries.user,hr_work_entry.model_hr_user_work_entry_employee,pr_custom_hr.employee_public_group,1,0,0,0

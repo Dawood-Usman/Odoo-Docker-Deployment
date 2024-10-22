@@ -1,0 +1,17 @@
+<odoo>
+    <record id="employee_public_group" model="res.groups">
+        <field name="name">Work Entries For Public Employee</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="comment">Public Employee will have access to his own Work Entries on his employee profile</field>
+    </record>
+    <record id="employee_public_rule_show_work_entry" model="ir.rule">
+        <field name="name">public Employee : Read his own work entries on his employee profile</field>
+        <field name="model_id" ref="hr_work_entry.model_hr_work_entry"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('pr_custom_hr.employee_public_group'))]"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+        <field name="perm_read" eval="1"/>
+    </record>
+</odoo>

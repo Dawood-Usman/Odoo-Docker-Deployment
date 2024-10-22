@@ -1,0 +1,165 @@
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 80%; /* Control the width as before */
+    margin: 0 auto; /* Keep it centered */
+    }
+
+.about-heading h3, .paragraph h3{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.about-us-container{
+  background-color: #EFF7EC; 
+  border-radius: 10px; 
+  padding: 30px;
+  margin: auto;
+}
+    .image-wrapper img {
+    display: block;
+    width: 100%; /* Image fills the wrapper */
+    height: auto;
+    margin-top: -240px; /* Pulls the image upwards by 50px */
+    }
+
+   
+    .image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Adjusted to compensate for the image being pulled up */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0, 141, 0, 0.69));
+    mix-blend-mode: multiply;
+    }
+    .align-items-center {
+    display: flex;
+    justify-content: space-between; /* This will push the button to the end (right side) of the
+    div */
+    align-items: center;
+    }
+
+    .text-end {
+    /* Override to align text or elements to the end */
+    text-align: end !important;
+    }
+
+    .btn {
+    margin-left: auto; /* This pushes the button to the end of the flex container */
+    border-radius: 4px;
+    }
+    .main_div{
+    margin-top:345px;
+    }
+    image-wrapper, .paragraph {
+    width: 80%; /* Ensure both have the same width */
+    margin: 0 auto; /* Center both within their parent container */
+    display: block; /* Ensure they are block-level for proper margin handling */
+    }
+
+    .btn-contact {
+        display: inline-flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-decoration: none; 
+        padding: 8px 12px;
+        gap: 8px; 
+    }
+    
+    .submit-button {
+        background-color: #63AC45;
+        height: 30px;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      
+      .submit-button:hover {
+        color: white;
+        background-color: rgb(69, 120, 48);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      }
+
+    .btn-contact .btn-text,
+    .btn-contact .btn-icon {
+        display: flex;
+        align-items: center;
+    }
+    
+
+    .paragraph h3, .paragraph p {
+    text-align: justify; /* Adjust text alignment as needed */
+    margin: 0; /* Remove default margins to align text starts */
+    }
+    @media (max-width: 767px) {
+      .about-us{
+        padding: 0;
+      }
+      .image-wrapper img {
+        display: block;
+        width: 100%; /* Image fills the wrapper */
+        height: auto;
+        margin-top: -60px; /* Pulls the image upwards by 50px */
+        }
+        .about-heading{
+          padding: 0px 15px;
+        }
+        .about-heading h3{
+          font-size: 16px;
+       
+        }
+        .about-us-container{
+          padding: 15px 0px;
+
+        }
+        .paragraph h3{
+          font-size: 15px;
+          margin-bottom: 10px;
+
+        }
+    .align-items-center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin:1px;
+    }
+    h3{
+    font-size:15px;
+    }
+    .text-end {
+    text-align: start !important;
+    }
+    .btn-mobile-small {
+    padding: 5px 10px; /* Smaller padding */
+    font-size: 12px; /* Smaller font size */
+    border-radius: 4px;
+    width: auto !important;
+    }
+    .btn-mobile-small svg {
+    width: 12px; /* Smaller width */
+    height: 12px; /* Smaller height */
+    }
+
+    .main_div{
+    margin-left:2px;
+    margin-right:2px;
+    margin-top:100px;
+    }
+    .main_div{
+      margin-top:100px;
+      }
+    .paragraph{
+    font-size: 10px;
+    width: 1000%;
+    }
+    }

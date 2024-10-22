@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_lead_developer,sale.order,sale.model_sale_order,kp_developer_leads.developer_group,1,0,0,0
+access_crm_leads_developer,crm.lead,crm.model_crm_lead,kp_developer_leads.developer_group,1,1,0,0
+access_crm_tag_developer,crm.tag,sales_team.model_crm_tag,kp_developer_leads.developer_group,1,0,0,0

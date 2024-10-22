@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+team_user,Team Member User,model_team_member,base.group_user,1,1,1,1
+team_category_user,Team Category User,model_team_category,base.group_user,1,1,1,1
+team_tech_stack_user,Team Tech Stack User,model_tech_stack_image,base.group_user,1,1,1,1
+contact_user,Contact User,model_contact,base.group_user,1,1,1,1
+testimonial_user,Testimonial User,model_testimonials,base.group_user,1,1,1,1
+post_public,Post Public User,website_blog.model_blog_blog,base.group_public,1,0,0,0
+post_public,Post Public User,website_blog.model_blog_post,base.group_public,1,0,0,0
+post_public,Post Public User,website_blog.model_blog_blog,base.group_portal,1,0,0,0
+post_public,Post Public User,website_blog.model_blog_post,base.group_portal,1,0,0,0
+team_public,Team Public User,model_team_member,base.group_public,1,0,0,0
+team_image_public,Team Image Public User,model_tech_stack_image,base.group_public,1,0,0,0
+testimonials_portal_testimonials,Testimonials Portal User Read Testimonials,model_testimonials,base.group_portal,1,0,0,0
+testimonials_public,Testimonials public User Read Testimonials,model_testimonials,base.group_public,1,0,0,0

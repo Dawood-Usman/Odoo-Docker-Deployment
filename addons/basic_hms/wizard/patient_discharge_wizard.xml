@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_patient_discharge_wizard" model="ir.ui.view">
+        <field name="name">patient.discharge.wizard.form</field>
+        <field name="model">patient.discharge.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Patient Discharge Reason">
+                <group>
+                    <field name="reason"/>
+                </group>
+                <footer>
+                    <button string="Confirm" type="object" name="confirm_reason" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

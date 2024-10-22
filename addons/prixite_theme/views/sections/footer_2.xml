@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="pr_footer" inherit_id="website.layout" name="Prixite Footer">
+        <xpath expr="//footer" position="replace">
+        <style>
+        .footer {
+  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer h3,
+.footer h5 {
+  color: #63ac45;
+}
+
+.footer p,
+.footer li,
+.footer a {
+  color: #000;
+  line-height: 1.6;
+}
+ .vertical-line {
+                    height: 17px;
+                    width: 1px;
+                    background-color: #333;
+                    display: inline-block;
+                    margin: 4px 10px 0 0px;
+                    opacity: 0.3;
+                    }
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .fas {
+  margin-right: 8px;
+}
+
+@media (max-width: 767px) {
+  .footer .col-md-4 {
+    margin-bottom: 1rem;
+  }
+}
+
+        </style>
+            <footer class="footer bg-light text-black pt-4 pb-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+        <!-- Company Logo and Info -->
+        <h3 class="text-success mb-3">PRIXITE.</h3>
+        <p><i class="fas fa-map-marker-alt text-success"></i> Sheridan, WY, USA | Lahore, Pakistan</p>
+        <p><i class="fas fa-phone text-success"></i> +1 (628) 277-3693</p>
+        <p><i class="fas fa-envelope text-success"></i> hi@prixite.com</p>
+      </div>
+
+      <div class="col-md-4 text-center mb-3 mb-md-0">
+        <!-- Additional Links -->
+        <h5 class="text-uppercase mb-4">More Information</h5>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-success">About Us</a></li>
+          <li><a href="#!" class="text-success">Contact Us</a></li>
+          <li><a href="#!" class="text-success">Services</a></li>
+          <li><a href="#!" class="text-success">News and Blogs</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 text-center text-md-end">
+        <!-- Social Links -->
+        <h5 class="text-uppercase mb-4">Join us on</h5>
+ <a href="https://web.facebook.com/prixite/" class="text-decoration-none">
+                                <img src="/prixite_theme/static/img/fb.png" alt="Facebook" class="social_icon_fb"/>
+                            </a>
+       <span class="vertical-line"></span> 
+                            <a href="https://www.linkedin.com/company/prixite/mycompany/" class="text-decoration-none">
+                                <img src="/prixite_theme/static/img/linkdein.png" alt="LinkedIn" class="social_icon"/>
+                            </a>
+                              <span class="vertical-line"></span> 
+                            <a href="https://www.instagram.com/prixitegram/" class="text-decoration-none">
+                                <img src="/prixite_theme/static/img/instagram.png" alt="Instagram" class="social_icon"/>
+                            </a>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <!-- Copyright Text -->
+        <p class="text-black-50">Prixite © 2024. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+        </xpath>
+    </template>
+</odoo>
+

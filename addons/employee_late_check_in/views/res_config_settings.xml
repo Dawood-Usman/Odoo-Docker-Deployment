@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="late_check_in_setting_view" model="ir.ui.view">
+            <field name="name">Late Check-in Configurations</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//block[@name='kiosk_mode_setting_container']" position="inside">
+                    <setting string="Late Check-in/Early Check-out">
+                        <label for="late_check_in_after" class="o_light_label"/>
+                        <field name="late_check_in_after" class="text-center" style="width: 10%; min-width: 4rem;"/><span> Minutes</span>
+                        <label for="early_check_out_before" class="o_light_label"/>
+                        <field name="early_check_out_before" class="text-center" style="width: 10%; min-width: 4rem;"/><span> Minutes</span>
+                    </setting>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

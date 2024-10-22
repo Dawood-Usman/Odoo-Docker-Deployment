@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="page_thank_you" model="website.page">
+            <field name="name">ThankYou</field>
+            <field name="is_published" eval="True"/>
+            <field name="key">prixite_website.thankyou</field>
+            <field name="url">/thank-you</field>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <t name="Thank You" t-name="prixite_website.thankyou">
+                    <t t-call="website.layout">
+                    <link rel="stylesheet" type="text/css" href="/prixite_theme/static/scss/contact-us.scss" />
+                        <xpath expr="//title" position="replace">
+                            <t t-set="title">Prixite - Thank You</t>
+                        </xpath>
+                        <div class="oe_structure"/>
+                        <section class="pt32 pb32">
+                            <div class="container">
+                                <div class="card" style="border-radius: 0.5rem;">
+                                    <div class="card-body text-black">
+                                        <div class="row">
+                                            <div class="col-lg-8 offset-lg-2">
+                                                <h1 class="text-center" style="font-size:36px; margin-bottom:16px;">Thank You!</h1>
+                                                <p class="lead text-center" style="font-size:20px;">
+                                                    Your submission has been received.
+                                                </p>
+                                                <p class="text-center">
+                                                    We appreciate you contacting Prixite. One of our colleagues will get back in touch with you soon!<br/>Have a great day!
+                                                </p>
+                                                <div class="text-center mt32">
+                                                    <a href="/" class="btn btn submit-button" style="font-size:18px; padding:10px 24px; background-color: #63ac45; color: white;">
+                                                        Return Home
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

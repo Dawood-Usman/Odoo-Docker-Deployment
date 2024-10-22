@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_template_inherit_form_health_center_view" model="ir.ui.view">
+        <field name="name">product.template.inherit.form.health.center.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']/span[2]" position="after">
+                <span class="d-inline-block">
+                    <field name="is_room"/>
+                    <label for="is_room"/>
+                </span>
+            </xpath>
+            <xpath expr="//field[@name='invoice_policy']" position="after">
+                <field name="room_type" invisible="is_room == False"/>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="product_product_inherit_form_health_center_view" model="ir.ui.view">
+        <field name="name">product.product.inherit.form.health.center.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="state" widget="statusbar"
+                    statusbar_visible="available,occupied"
+                    readonly="1" />
+                <button name="action_occupied"
+                    string="Occupied" type="object"
+                    class="oe_highlight" invisible="state == 'occupied'" />
+                <button name="action_available"
+                    string="Available" type="object"
+                    class="oe_highlight" invisible="state == 'available'" />
+            </xpath>
+            <xpath expr="//div[@name='options']/span[2]" position="after">
+                <span class="d-inline-block">
+                    <field name="is_bed"/>
+                    <label for="is_bed"/>
+                </span>
+            </xpath>
+        </field>
+     </record>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="developer_user_mail" model="mail.template">
+            <field name="name">Settings: New User Invite</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="subject">Lead Assigned to {{ object.developer_id.name }}!</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">{{ object.developer_id.login }}</field>
+            <field name="description">Sent to crm lead developer user</field>
+            <field name="body_html" type="html">
+                <table>
+
+                    hi
+                    <t t-out="object.developer_id.name"/>
+                    there is a lead assigned to you named as
+                    "
+                    <t t-out="object.name"/>
+                    "
+                    <a t-attf-href="/web#action=kp_developer_leads.developer_lead_action&amp;id={{object.id}}&amp;view_type=form">Go to Lead</a>
+                </table>
+
+            </field>
+            <field name="lang">{{ user.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

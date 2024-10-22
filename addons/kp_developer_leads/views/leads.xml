@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--views for crm Manager leads-->
+        <record id="crm_pipline_view_form" model="ir.ui.view">
+            <field name="name">developer_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <!--            <field name="groups_id" eval="[Command.link(ref('sales_team.group_sale_salesman'))]"/>-->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="developer_id"/>
+                    <field name="lead_relevancy"/>
+                    <field name="developer_note"/>
+
+                </xpath>
+            </field>
+        </record>
+        <!--views for crm developer leads-->
+        <record id="developer_leads_kanban_view" model="ir.ui.view">
+            <field name="name">developer.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="mode">primary</field>
+            <field name="priority">18</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//div" position="after">
+
+                </xpath>
+            </field>
+        </record>
+        <record id="developer_lead_view_form" model="ir.ui.view">
+            <field name="name">developer_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <!--                <xpath expr="//field[@name='user_id']" position="after">-->
+                <!--                    <field name="lead_relevancy"/>-->
+                <!--                    <field name="developer_id"/>-->
+                <!--                    <field name="developer_note"/>-->
+
+                <!--                </xpath>-->
+                <xpath expr="//div[hasclass('oe_title')]//h2" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                    <!--                    <attribute name="options">{'no_open': True}</attribute>-->
+                </xpath>
+                <xpath expr="//group[@name='lead_partner']//field[@name='partner_id']" position="replace"/>
+                <xpath expr="//header" position="replace">
+                    <header>
+                        <field name="stage_id" widget="statusbar_duration"
+                               options="{'clickable': '1', 'fold_field': 'fold'}"
+                               domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"
+                               invisible="not active or type == 'lead'"/>
+                    </header>
+                </xpath>
+                <xpath expr="//button[@name='action_view_sale_quotation']" position="replace">
+
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="developer_crm_case_tree_view_oppor" model="ir.ui.view">
+            <field name="name">crm tree view for developer</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expected_revenue']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+        <record id="developer_lead_action" model="ir.actions.act_window">
+            <field name="name">Developer Leads</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('kp_developer_leads.developer_crm_case_tree_view_oppor')}),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('kp_developer_leads.developer_leads_kanban_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('kp_developer_leads.developer_lead_view_form')})]"/>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_developer_leads" name="Developer Leads" groups="kp_developer_leads.developer_group"
+                  action="developer_lead_action"/>
+    </data>
+</odoo>
+
+
+        <!--# crm.lead-->
+        <!--# crm.tag-->
+        <!--# sale.order-->

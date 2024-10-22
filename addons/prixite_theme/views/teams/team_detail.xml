@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="template_team_details" name="Team Detail Page">
+        <t t-call="website.layout">
+            <xpath expr="//title" position="replace">
+                <t t-set="title">Prixite! Team</t>
+            </xpath>
+            <style>
+                /* Style for the tech stack cards */
+                .stack-row{
+                    margin: auto;
+                }
+                .stack-title{
+                        text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: 0;
+                }
+                .card-headline{
+                    line-height: 1.5;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                }
+                .profile-info{
+                     padding: 60px 30px 30px; 
+                     display: flex; 
+                     flex-direction: column;
+                }
+                .profile-info p{
+                        width: 85%;
+                        font-size: 1rem;
+    line-height: 1.8;
+    color: black;
+    margin-top: 0;
+    font-weight: 400;
+                }
+                .profile-title{
+                        color: #63ac45;
+                }
+                .profile-name{
+                    margin: 0px;
+                    font-size: 18px;
+                    font-weight: 600; 
+                    line-height: 1.8
+                }
+                .card-description{
+                    background-color: #63AC45;
+                    padding:10px;
+                    padding: 20px;
+                }
+
+                .stack {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #63AC45;
+                padding: 10px 15px;
+                border-radius: 10px;
+                gap: 5px;
+                margin-right:40px;
+                height:150px;
+                width:150px;
+                justify-content: center;
+                align-items: center; /* Changed from 'align-content' for individual flex items */
+                margin-bottom: 15px; /* Add some space between the rows */
+                }
+
+                .stack img {
+                max-width: 100%; /* Ensure the image fits within the container */
+                height: 80px; /* Maintain aspect ratio */
+                width: 80px;
+                border-radius: 5px; /* Optional: if you want the images themselves to also be rounded */
+                }
+
+                 @media (max-width: 768px) {
+                     .profile-name{
+                    margin: 0px;
+                    font-size: 15px;
+                    font-weight: 600; 
+                    line-height: 1.1
+                }
+                 .profile-title{
+                       font-size: 14px;
+                }
+                    .profile-info p{
+                        width: 100%;
+                        font-size: 0.7rem;
+    line-height: 1.5;
+    color: black;
+    margin-top: 0;
+                }
+                    .stack-row{
+                            display: flex;
+    flex-direction: column;
+    align-items: center;
+                    }
+                      .profile-info{
+                     padding: 30px 0; 
+                     display: flex; 
+                     flex-direction: column;
+                }
+
+                 }
+                
+            </style>
+            <div class="container mt-3 mt-md-5">
+                <div class="row">
+                    <div class=" col-5 col-md-3">
+                        <img t-att-src="'/web/image/team.member/' + str(team.id) + '/profile'" alt="Profile Image"
+                             class="img-fluid"/>
+                    </div>
+                    <div class="col-7 profile-info">
+
+                        <h4 t-esc="team.name" class="profile-name"></h4>
+                        <h4 t-esc="team.title" class="profile-title"></h4>
+                        <p t-esc="team.bio"></p>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="card text-white card-description">
+                            <p class="card-headline">More About
+                                <span t-esc="team.name"></span>
+                            </p>
+                            <p class="card-text" t-esc="team.description" ></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <p style="line-height: 1.5;font-size: 16px;font-weight: 600;">Development Stack</p>
+                        <div class="row stack-row">
+                            <t t-foreach="team.tech_stack_image_ids" t-as="tech_stack_image">
+                                <div class="col-md-2 col-sm-12 stack">
+                                    <img t-att-src="'/web/image/tech.stack.image/' + str(tech_stack_image.id) + '/image'"
+                                         alt="Tech Stack Image" class="img-fluid"/>
+                                    <p class="stack-title" t-esc="tech_stack_image.title"></p>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

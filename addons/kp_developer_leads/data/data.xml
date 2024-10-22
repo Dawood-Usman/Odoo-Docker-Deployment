@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="developer_group" model="res.groups">
+            <field name="name">Show Developer Leads</field>
+            <!--            <field name="category_id" ref=""/>-->
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="ir_rule_crm_developer_leads" model="ir.rule">
+            <field name="name">Developer Leads Rule</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="groups" eval="[(4, ref('kp_developer_leads.developer_group'))]"/>
+            <field name="domain_force">[('developer_id','=',user.id)]</field>
+        </record>
+
+    </data>
+</odoo>

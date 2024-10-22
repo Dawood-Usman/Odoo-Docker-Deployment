@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="name">Contract Pr Inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='salary']" position="after">
+                <!-- Add your fields or attributes here -->
+                <group>
+                    <group>
+                        <field name="is_multi_currency"/>
+
+                    </group>
+                    <!--                    <label for="is_multi_currency" string="sdsfsd"/>-->
+                    <group invisible="not is_multi_currency">
+                        <field name="secondary_currency_id"/>
+                        <field name="lst_currency_rate"/>
+                        <field name="wage_in_2nd_currency"/>
+                    </group>
+                </group>
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_hr_payslip_by_employees" model="ir.ui.view">
+        <field name="name">HR Payroll</field>
+        <field name="model">hr.payslip.employees</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_by_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[1]" position="after">
+                <!-- Add your fields or attributes here -->
+                <div class="o_row">
+                    <p class="text-muted w-50">Currency Rate</p>
+                    <field name="currency_rate" nolabel="1"/>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

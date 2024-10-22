@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="page_python_programming" model="website.page">
+            <field name="name">DevOps</field>
+            <field name="is_published" eval="True"/>
+            <field name="key">prixite_website.python_programming</field>
+            <field name="url">/services/python-programming</field>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <t name="Python Programming" t-name="prixite_website.python_programming">
+                    <t t-call="website.layout">
+                    <link rel="stylesheet" type="text/css" href="/prixite_theme/static/scss/service.scss" />
+                        <xpath expr="//title" position="replace">
+                <t t-set="title">Prixite - Python Experts</t>
+            </xpath>
+                        <div class="container mt-5 text-black mt-3 mt-md-5 p-md-0">
+                            <div class="row align-items-center p-4 services-containerr"
+                                 style="background-color: #EFF7EC; border-radius: 1rem;">
+                                <div class="col-md-8">
+                                    <h3>Python Experts</h3>
+                                    <p class="service-para">Prixite is one of the top companies to provide full-stack python web development
+                                        services to its clients worldwide.
+                                    </p>
+                                </div>
+                              <div class="col-12 col-md-4 text-center text-end">
+                                    <a href="/contact-us" class="btn  btn-mobile-small btn-contact submit-button"
+                                    >
+                                        CONTACT US
+                                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                               stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M1.265 4.42619C1.04293 2.87167 2.6169 1.67931 4.05323 2.31397L21.8341 10.1706C23.423 10.8727 23.423 13.1273 21.8341 13.8294L4.05323 21.686C2.6169 22.3207 1.04293 21.1283 1.265 19.5738L1.99102 14.4917C2.06002 14.0087 2.41458 13.6156 2.88791 13.4972L8.87688 12L2.88791 10.5028C2.41458 10.3844 2.06002 9.99129 1.99102 9.50829L1.265 4.42619ZM21.0257 12L3.2449 4.14335L3.89484 8.69294L12.8545 10.9328C13.9654 11.2106 13.9654 12.7894 12.8545 13.0672L3.89484 15.3071L3.2449 19.8566L21.0257 12Z"
+                                                      fill="#ffffff"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="align-items-center mt-4 mt-md-5"
+                            >
+                                <div>
+                                    <p class="sub-para-service">Python is one of the greatest tools in the technology industry embodying the
+                                        power of building inventive, faster, real-time, and scalable applications.
+                                        Strengthen your back end with speedy and advanced Python programming languages
+                                        offered by Prixite. We are being one of the leading python service providers all
+                                        over the world aim to deliver world-class services to our clients in developing
+                                        quality websites and mobile applications using innovative and advanced Python
+                                        Development using Django framework and incentive cutting edge tools. Our team of
+                                        expert professionals at Prixite believes in offering its potential clients
+                                        superior quality customer service by establishing premium quality, advanced and
+                                        collaborative project management systems, and operations. We help our clients in
+                                        handling immense and high-speed data while enhancing the data exchange and
+                                        retrieval performance via advanced and innovative enterprise solutions to their
+                                        business requirements.
+
+
+                                    </p>
+                                    <br></br>
+                                    <p class="sub-para-service">We anchorage the strength and advancement of our Python programming language
+                                        services by establishing superior and high-quality performing web applications.
+                                        Prixite takes pride in offering its clients advanced python services and
+                                        solutions which are widely used and are considered a high-level programming
+                                        language. It has a huge selection of preexisting libraries, frameworks, and
+                                        simplicity that makes it quite a great fit for highly complicated web projects
+                                        and applications. It is considered one of the most important and popular
+                                        technology among business developers.
+                                    </p>
+                                    <br></br>
+                                    <p class="sub-para-service">Prixite understands the importance of IT in the business industry and offers a
+                                        full range of python services that includes Django development, Pyramid
+                                        development, Flask development, and Zope development. In addition to this, We
+                                        offer our potential clients with up to date and range of python services that
+                                        includes:
+                                    </p>
+                                    <ul>
+                                        <li>Python Development</li>
+                                        <li>Python Migration</li>
+                                        <li>Python Independent Testing</li>
+                                        <li>Python Application Development</li>
+                                        <li>Machine Learning</li>
+                                        <li>Python Backend Development and Support</li>
+                                        <li>Data Science</li>
+                                        <li>Python Maintenance and Support</li>
+                                        <li>Internet of Things (IoT)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

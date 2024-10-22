@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="template_team_listing" name="Team Listing">
+        <t t-call="website.layout">
+            <xpath expr="//title" position="replace">
+                <t t-set="title">Prixite - Meat the team</t>
+            </xpath>
+            <style>
+            .nav-tabs {
+    border-bottom: none;
+        padding: 0 16px;
+}
+.profile-name{
+        line-height: 1.5;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.team-heading{
+        font-size: 30px;
+    font-weight: 600;
+}
+
+                .nav-tabs .nav-link {
+                margin-right: 10px; 
+                border: 1px solid transparent;
+                    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+                }
+.team-sub-heading{
+        font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 450;
+}
+
+                .nav-tabs .nav-link.active {
+                color: #28a745; 
+                border-color: #28a745; 
+                background-color: transparent; 
+                    border-radius: 0.4rem;
+                }
+
+                .nav-tabs .nav-link:hover {
+                border: transparent; 
+                }
+                   .nav-tabs .nav-link.active:hover {
+            background-color: transparent;
+                border-radius: 0.4rem;
+    border: 1px solid #28a745;
+     
+    }
+        .teamDiv {
+        display: inline-block;
+        width: calc(20% - 20px);
+        margin: 10px; 
+        text-align: center; 
+        vertical-align: top; 
+    }
+ .teamDiv a:hover{
+    text-decoration: none;
+ }
+
+    @media (max-width: 768px) {
+        .teamDiv {
+            display: block;
+            width: 100%;
+            margin: 10px 0; /* Margin only top and bottom for vertical stacking */
+        }
+        .teamDiv p{
+                font-size: 13px;
+        }
+        .team-heading {
+    font-size: 20px;
+}
+.team-sub-heading {
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+.nav-tabs .nav-link {
+    font-size: 0.7rem;
+    line-height: 1;
+}
+    }
+            </style>
+            <div class="container mt-3 mt-md-5">
+                <div class="row">
+                    <p class="team-heading">Meet the
+                        <span style="color:#63AC45;">team</span>
+                    </p>
+                    <p class="team-sub-heading">Meet our highly enthusiastic team, who looks for out of box solutions, and aspires to become our
+                        customer’s first choice.
+                    </p>
+                    <p id="category" t-out="categories_json" style="display:none"></p>
+                    <p id="team" t-out="teams_json" style="display:none"></p>
+
+                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                        <li class="nav-item" role="presentation">
+
+                        </li>
+                    </ul>
+
+                    <!-- Tab content -->
+                    <div class="tab-content mt-3 mt-md-5" id="tab-content">
+                    </div>
+                </div>
+            </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var categoriesData = document.getElementById('category').innerText;
+    var categories = JSON.parse(categoriesData);
+
+    var teamsData = document.getElementById('team').innerText;
+    var teams = JSON.parse(teamsData);
+
+    var tabList = document.getElementById('myTab');
+    var tabContentContainer = document.getElementById('tab-content');
+
+    // Populate categories and teams
+    categories.forEach(function (category, index) {
+        // Tab for each category
+        var listItem = document.createElement('li');
+        listItem.className = 'nav-item';
+        var link = document.createElement('a');
+        link.className = 'nav-link' + (index === 0 ? ' active' : '');
+        link.id = 'tab-' + category.id;
+        link.setAttribute('data-bs-toggle', 'tab');
+        link.href = '#tabpanel-' + category.id;
+        link.role = 'tab';
+        link.setAttribute('aria-controls', 'tabpanel-' + category.id);
+        link.setAttribute('aria-selected', 'true');
+        link.textContent = category.name;
+        listItem.appendChild(link);
+        tabList.appendChild(listItem);
+
+        // Content for each category
+        var tabPanel = document.createElement('div');
+        tabPanel.className = 'tab-pane fade' + (index === 0 ? ' show active' : '');
+        tabPanel.id = 'tabpanel-' + category.id;
+        var teamContainer = document.createElement('div');
+
+        teams.filter(team => team.category_ids.includes(category.id)).forEach(team => {
+            var teamDiv = document.createElement('div');
+            teamDiv.className = 'teamDiv'; // Use class for styling
+            var anchor = document.createElement('a');
+            anchor.href = '/teams/' + team.id;
+            anchor.className = 'd-block text-center';
+            var image = document.createElement('img');
+            image.className = 'img-fluid rounded';
+            image.src = team.image;
+            image.alt = team.name;
+            image.style.width = '150px';
+            image.style.height = '150px';
+            image.style.objectFit = 'cover';
+            var nameElement = document.createElement('p');
+            nameElement.className = 'mt-2 profile-name';
+            nameElement.textContent = team.name;
+            var titleElement = document.createElement('p');
+            titleElement.textContent = team.title;
+            titleElement.style.color = 'green';
+
+            anchor.appendChild(image);
+            anchor.appendChild(nameElement);
+            anchor.appendChild(titleElement);
+            teamDiv.appendChild(anchor);
+            teamContainer.appendChild(teamDiv);
+        });
+
+        tabPanel.appendChild(teamContainer);
+        tabContentContainer.appendChild(tabPanel);
+    });
+});
+</script>
+
+
+
+        </t>
+    </template>
+</odoo>
