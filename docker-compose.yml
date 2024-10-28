@@ -24,7 +24,7 @@ services:
       - db-17
     restart: always
     ports:
-      - "8069:8069"
+      - "8071:8069"
     environment:
       - HOST=db-17
       - USER=odoo
