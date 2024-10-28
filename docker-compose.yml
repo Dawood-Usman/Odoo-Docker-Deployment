@@ -38,7 +38,7 @@ services:
     networks:
       - odoo-network-17
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8069 || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8071 || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 5
