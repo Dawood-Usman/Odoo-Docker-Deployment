@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="action_report_offer_letter" model="ir.actions.report">
+            <field name="name">Offer Letter</field>
+            <field name="model">hr.applicant</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">pr_employment_offer.offer_letter</field>
+            <field name="report_file">pr_employment_offer.offer_letter</field>
+            <field name="print_report_name">'Offer Letter'</field>
+            <field name="paperformat_id" ref="pr_employment_offer.paperformat_offer_letter"/>
+
+        </record>
+
+        <template id="sub_temp">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <t t-set="object" t-value="doc"/>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>
+                                    <t t-out="datetime.datetime.now()"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>
+                                    Dear <t t-out="object.partner_name">Technical Demo</t>,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 p-4 " style="padding-left:10px!important">
+                                <b>
+                                    Subject: Job Offer for
+                                    <t t-out="object.job_id.name">Job Name</t>
+                                </b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>We are pleased to offer you the position of <t t-out="object.job_id.name">Job
+                                    Name
+                                </t> at Prixite reporting
+                                    to
+                                    <t t-out="object.department_id.manager_id.name">Job Name</t>. We are
+                                    confident
+                                    that your skills and
+                                    experience
+                                    will be a valuable addition to our team
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12">
+                                <p>
+                                    Here are the key details of your offer:
+                                </p>
+                            </div>
+                        </div>
+                        <!--    details section-->
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="table-layout: fixed">
+                                    <tbody>
+                                        <tr>
+                                            <th>Position:</th>
+                                            <td>
+                                                <t t-out="object.job_id.name">Job Name</t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Start Date:</th>
+                                            <td>
+                                                <t t-out="object.date_closed">Start Date</t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Location:</th>
+                                            <td>Fully remote</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Working Hours:</th>
+                                            <td>
+                                                <t t-out="object.resource_calendar_id.name">Job Name</t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Salary:</th>
+                                            <td>
+                                                <t t-out="object.salary_proposed">Salary Proposed</t>
+                                                in US Dollars
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Bonus:</th>
+                                            <td>You will be eligible for annual performance-based bonuses</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <!---->
+                        <div class="row p-4">
+                            <p>Additionally, you will be entitled to annual salary increments based on your
+                                performance review.
+                            </p>
+                        </div>
+
+                        <div class="row ">
+                            <div class="d-flex">
+                                <b>Benefits after Probation:</b>
+                                <p>Upon successful completion of the 3-month probation
+                                    period, you will be entitled to the following paid leave options:
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+
+                            <ul class="col-11">
+                                <li><b>Paid time off</b>including casual, medical, and annual leave.
+                                </li>
+                                <li>
+                                    <b>Paid maternity and paternity leave</b>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="row p-4">
+                            Please indicate your acceptance of this offer letter by <t t-out="object.due_date">
+                            Due
+                            Date</t>. We look
+                            forward to your joining us
+                        </div>
+
+                        <div class="row p-4">
+                            If you have any questions, please feel free to reach out to me via response to this
+                            email.
+                        </div>
+
+                        <div class="row p-4">
+                            <div class="col-3">
+                                <p>Sincerely,</p>
+                                <p>HR Department,</p>
+                                <p>PRIXITE (SMC – PRIVATE) LIMITED</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+
+        </template>
+        <template id="offer_letter">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="pr_employment_offer.sub_temp"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

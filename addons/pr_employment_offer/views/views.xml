@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="pr_employment_offer.list">
+      <field name="name">pr_employment_offer list</field>
+      <field name="model">pr_employment_offer.pr_employment_offer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="pr_employment_offer.action_window">
+      <field name="name">pr_employment_offer window</field>
+      <field name="res_model">pr_employment_offer.pr_employment_offer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="pr_employment_offer.action_server">
+      <field name="name">pr_employment_offer server</field>
+      <field name="model_id" ref="model_pr_employment_offer_pr_employment_offer"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="pr_employment_offer" id="pr_employment_offer.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="pr_employment_offer.menu_1" parent="pr_employment_offer.menu_root"/>
+    <menuitem name="Menu 2" id="pr_employment_offer.menu_2" parent="pr_employment_offer.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="pr_employment_offer.menu_1_list" parent="pr_employment_offer.menu_1"
+              action="pr_employment_offer.action_window"/>
+    <menuitem name="Server to list" id="pr_employment_offer" parent="pr_employment_offer.menu_2"
+              action="pr_employment_offer.action_server"/>
+-->
+  </data>
+</odoo>
