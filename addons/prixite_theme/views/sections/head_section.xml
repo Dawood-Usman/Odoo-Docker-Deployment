@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="head_customization" inherit_id="web.layout">
+        <xpath expr="//head" position="inside">
+            <link rel="icon" type="image/png" sizes="32x32" href="/prixite_theme/static/img/favicon.png"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="/prixite_theme/static/img/favicon.png"/>
+            <link rel="shortcut icon" type="image/x-icon" href="/prixite_theme/static/img/favicon.ico"/>
+        </xpath>
+    </template>
+</odoo>
+

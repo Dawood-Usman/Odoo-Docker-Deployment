@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="page_service" model="website.page">
+            <field name="name">Service</field>
+            <field name="is_published" eval="True"/>
+            <field name="key">prixite_website.services_list</field>
+            <field name="url">/services</field>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <t name="Service" t-name="prixite_website.services_list">
+                    <t t-call="website.layout">
+                        <link rel="stylesheet" type="text/css" href="/prixite_theme/static/scss/service.scss" />
+                        <xpath expr="//title" position="replace">
+                            <t t-set="title">Prixite - Services</t>
+                        </xpath>
+                        <div class="container mt-1 mt-md-5 p-md-0">
+                            <div class="row align-items-center services-containerr"
+                                 style="background-color: #EFF7EC; border-radius: 10px">
+                                <div class="col-12 col-md-8 mb-1 mb-md-0">
+                                    <h3>We are <span style="color:#63AC45">Offering</span> the Amazing Services🚀
+                                    </h3>
+                                </div>
+                                <div class="col-12 col-md-4 text-center text-end">
+                                    <a href="/contact-us" class="btn  btn-mobile-small btn-contact submit-button"
+                                  >
+                                        CONTACT US
+                                        <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                               stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M1.265 4.42619C1.04293 2.87167 2.6169 1.67931 4.05323 2.31397L21.8341 10.1706C23.423 10.8727 23.423 13.1273 21.8341 13.8294L4.05323 21.686C2.6169 22.3207 1.04293 21.1283 1.265 19.5738L1.99102 14.4917C2.06002 14.0087 2.41458 13.6156 2.88791 13.4972L8.87688 12L2.88791 10.5028C2.41458 10.3844 2.06002 9.99129 1.99102 9.50829L1.265 4.42619ZM21.0257 12L3.2449 4.14335L3.89484 8.69294L12.8545 10.9328C13.9654 11.2106 13.9654 12.7894 12.8545 13.0672L3.89484 15.3071L3.2449 19.8566L21.0257 12Z"
+                                                      fill="#ffffff"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="services-section py-5">
+                            <div class="container">
+                                <div class="row text-center">
+                                    <div class="row text-center">
+                                        <div class="col-md-3">
+                                            <a href="/services/web-development"
+                                               style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                             <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/webIcon.png" width="22" height="20" />
+                                                </div>
+                                                    <p class="h6 mt-2 sub-headings ">Web App Development</p>
+                                                    		<p class="sub-paragraphs">Short description of the
+                                                        service
+                                                        offering, highlighting key benefits or features.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/scraping" style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                                 <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/scrapingIcon.png" width="22" height="20" />
+                                                </div>
+                                                    <p class="h6 mt-2 sub-headings ">Scraping</p>
+                                                   		<p class="sub-paragraphs">Prixite is one of the
+                                                        leading
+                                                        digital marketing service providers that believe in creating
+                                                        value added
+                                                        solutions for our potential clients web data extraction needs.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/machine-learning"
+                                               style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                               <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/ml.png" width="22" height="20" />
+                                                </div>
+                                                    <h6 class="h6 mt-2 sub-headings ">Machine Learning</h6>
+                                                   		<p class="sub-paragraphs">We provide top-notch
+                                                        machine
+                                                        learning services to help your business stay ahead of the curve.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/devops" style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                             <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/devops.png" width="22" height="20" />
+                                                </div>
+                                                    <h6 class="h6 mt-2 sub-headings ">DevOps</h6>
+                                                 		<p class="sub-paragraphs">Prixite DevOps practices
+                                                        help
+                                                        clients achieve their goals without compromising on product
+                                                        environment and
+                                                        infrastructure capabilities.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center mt-3">
+                                        <div class="col-md-3">
+                                            <a href="/services/python-programming"
+                                               style="text-decoration: none; color: inherit;">
+
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                           <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/pythonIcon.png" width="22" height="20" />
+                                                </div>
+                                                    <p class="h6 mt-2 sub-headings ">Python Experts</p>
+                                                    		<p class="sub-paragraphs">Prixite is one of the
+                                                        top companies
+                                                        to provide full-stack python web development services to its
+                                                        clients
+                                                        worldwide.
+                                                    </p>
+                                                </div>
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/mobile-app-development"
+                                               style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                              <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/mobileIcon.png" width="22" height="20" />
+                                                </div>
+                                                    <p class="h6 mt-2 sub-headings ">Mobile App Development</p>
+                                                   		<p class="sub-paragraphs">To improve your digital
+                                                        strategy and
+                                                        benefit from all the advantages of the mobile digital age, the
+                                                        mobile
+                                                        application.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/odoo" style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                            <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/odoo.png" width="22" height="20" />
+                                                </div>
+                                                    <h6 class="h6 mt-2 sub-headings ">Odoo Services</h6>
+                                                    		<p class="sub-paragraphs">We provide top-notch
+                                                        machine
+                                                        learning services to help your business stay ahead of the curve.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="/services/react-development"
+                                               style="text-decoration: none; color: inherit;">
+                                                <div class="service-item mb-4 mb-md-0" style="text-align: left;">
+                                             <div class="service-image-container">
+												<img alt="service-image" src="/prixite_theme/static/img/reactIcon.png" width="22" height="20" />
+                                                </div>
+                                                    <h6 class="h6 mt-2 sub-headings ">React Development</h6>
+                                                   		<p class="sub-paragraphs">At Prixite, we
+                                                        specialize in
+                                                        providing top-quality React development services to our clients.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

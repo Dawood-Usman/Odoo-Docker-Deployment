@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="pr_header" inherit_id="website.layout" name="Prixite Header">
+		<xpath expr="//header" position="replace">
+			<header>
+				<style>
+					/* Styles adjusted to ensure menu opens within the container */
+					.about-us-menu-item {
+					border-top: 1px solid;
+					border-color: rgba(0, 0, 0, 0.12);
+					padding-top: 20px;
+					}
+					@media (max-width: 767px) {
+					.title-heading{
+					font-size: 12px !important;
+					font-weight: 800;
+					color: black;
+					margin-left: 5px;
+					}
+					.navbar-brand img {
+					height: 15px !important;
+					width: 15px;
+					}
+					.menu-icon img{
+					width: 35px;
+					height: 35px;
+					}
+					.header-dot {
+					line-height: 0.7 !important;
+                    font-size: 29px !important;
+					}
+					
+					}
+					.header-container {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					position: relative;
+					}
+					.menu-icon {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					}
+					.header-menu {
+					display: none;
+					position: absolute;
+					left: 0;
+					top: 100%;
+					width: 100%;
+					background-color: white;
+					z-index: 1000;
+					}
+					.header-menu.open {
+					display: block;
+					}
+					.header-menu-item {
+					display: flex; /* Enable flexbox for alignment */
+					justify-content: space-between; /* Space the text and the icon */
+					align-items: center; /* Center items vertically */
+					padding: 20px;
+					transition: background-color 0.3s ease;
+					font-size: 15px;
+					color: #33363A;
+					
+					}
+					.header-menu-item:hover,.header-menu-item:active {
+					background-color: #f8f9fa; /* Light gray background on hover */
+					cursor: pointer; /* Change cursor to indicate clickable items */
+					}
+					.header-menu-item img {
+					/* Style for the icon */
+					margin-left: 10px;
+					width:16px;
+					height:16px;
+					}
+				</style>
+				<div class="container mt-3 p-md-0">
+					<div class="header-container">
+						<div class="logo-container" style="display: flex">
+							<a class="navbar-brand" style="display: flex;" href="/">
+								<img src="/prixite_theme/static/img/logo.png" alt="Logo" style="height: 30px;" />
+								<strong class="title-heading">
+									PRIXITE
+								</strong>
+								<span class="header-dot" style="font-size: 35px; line-height:1.1; color:#63AC45; align-self: self-end">
+									&#8226;
+								</span>
+							</a>
+						</div>
+						<div class="card menu-icon p-8" onclick="toggleMenu()" >
+							<img src="/prixite_theme/static/img/hamburgerOpen.png" alt="Open Menu" id="hamburgerIcon" width="40" height="40" />
+						</div>
+						<div class="header-menu" id="menu">
+						</div>
+					</div>
+				</div>
+				 <script>
+                    let menuOpen = false;
+                    let menuData = null;
+
+                    document.addEventListener("DOMContentLoaded", async function() {
+                        await loadMenuItems();
+                        document.addEventListener('click', function(event) {
+                            const menu = document.getElementById('menu');
+                            const menuIcon = document.querySelector('.menu-icon');
+                            // Check if the click is outside the menu and menu icon, and if the menu is open
+                            if (!menu.contains(event.target) &amp;&amp; !menuIcon.contains(event.target) &amp;&amp; menuOpen) {
+                                toggleMenu();  // Call toggleMenu to close it
+                            }
+                        });
+                    });
+
+                    async function loadMenuItems() {
+                        const menu = document.getElementById('menu');
+                        if (!menuData) {
+                            const response = await fetch('/api/menu');
+                            menuData = await response.json();
+                            menuData.forEach(item => {
+                                if (!document.querySelector(`[data-url="${item.url}"]`)) {
+                                    const menuItem = document.createElement('div');
+                                    menuItem.className = 'header-menu-item';
+                                    menuItem.textContent = item.name;
+                                    menuItem.dataset.url = item.url;
+                                    menuItem.onclick = () => toggleMenu(item.url);
+                                    if (item.name === 'About Us') {
+                                        menuItem.classList.add('about-us-menu-item');
+                                    }
+                                    const img = document.createElement('img');
+                                    img.src = '/prixite_theme/static/img/down-right.png';
+                                    menuItem.appendChild(img);
+                                    menu.appendChild(menuItem);
+                                }
+                            });
+                        }
+                    }
+
+                    function toggleMenu(path = null) {
+                        const menu = document.getElementById('menu');
+                        const iconOpen = document.getElementById('hamburgerIcon');
+                        menuOpen = !menuOpen;
+                        if (menuOpen) {
+                            menu.classList.add('open');
+                            iconOpen.src = '/prixite_theme/static/img/hamburgerClose.png';
+                        } else {
+                            menu.classList.remove('open');
+                            iconOpen.src = '/prixite_theme/static/img/hamburgerOpen.png';
+                            if (path) {
+                                window.location.href = path;
+                            }
+                        }
+                    }
+                </script>
+
+
+
+			</header>
+		</xpath>
+	</template>
+</odoo>

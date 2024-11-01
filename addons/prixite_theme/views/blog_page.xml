@@ -1,0 +1,60 @@
+<odoo>
+    <template id="template_blogs_listing" name="Blogs Listing">
+        <t t-call="website.layout">
+            <link rel="stylesheet" type="text/css" href="/prixite_theme/static/scss/home.scss"/>
+            <xpath expr="//title" position="replace">
+                <t t-set="title">
+                    Prixite - Blogs
+                </t>
+            </xpath>
+            <div class="container mt-1 mt-md-5 p-md-0">
+                <div class="row align-items-center services-containerr"
+                     style="background-color: #EFF7EC; border-radius: 10px">
+                    <div class="col-12 col-md-8 mb-1 mb-md-0">
+                        <div class="News-title">
+                            News &amp;
+                            <span style="color: #63ac45;">
+                                Blogs
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center text-end">
+                        <a href="/" class="back-link">
+                            &lt; Back
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-1 mt-md-5 text-black ">
+                <div class="row">
+                    <t t-foreach="blogs" t-as="blog_post">
+                        <div class="col-12 col-md-6 mt-4">
+                            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);">
+                                <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}">
+                                    <img t-att-src="website.image_url(blog_post, 'cover_properties')"
+                                         class="card-img-top p-3 rounded" alt="Blog Post Image"/>
+                                </a>
+                                <div class="card-body">
+                                    <p class="px-3 py-2 date-container">
+                                        Posted on
+                                        <t t-esc="blog_post.post_date"/>
+                                    </p>
+                                    <h5 class="card-title">
+                                        <t t-esc="blog_post.name"/>
+                                    </h5>
+                                    <p class="description">
+                                        <t t-esc="blog_post.teaser"/>
+                                    </p>
+                                    <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                                       class="btn read-more mb-3 submit-button contact">
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
