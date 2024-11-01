@@ -3,7 +3,10 @@ name: Odoo CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Trigger on the main branch
+      - main 
+  pull_request:
+    branches:
+      - main
 
 jobs:
   Build:
